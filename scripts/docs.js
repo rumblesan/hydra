@@ -21,34 +21,42 @@ Object.keys(glslfuncs).forEach((k) => {
 
 const createlist = (items) => items.map((i) => `* ${i}`).join('\n')
 
-const createFuncDoc = (fname) => {
-  const title = `#### ${fname}`
-  const argnames = (glslfuncs[fname].inputs || []).map(i => `${i.name} :: ${i.type}`)
+const funcArgsList = (argnames) => {
+  return argnames.length > 1 ? ` ${(argnames).map((n) => '`' + n + '`').join(', ')} ` : ''
+}
 
+const createFuncDoc = (fname, cname) => {
+  const f = glslfuncs[fname]
+  const argnames = (f.inputs || []).map(i => i.name)
+  const arginfo = (f.inputs || []).map(i => `${i.name} :: ${i.type}`)
+  const displayName = (cname !== 'Src' ? '.' : '') + fname
+
+  const title = `### ${displayName}(${funcArgsList(argnames)})`
+  const notes = f.notes ? f.notes + '\n\n' : ''
   let args
   if (argnames.length > 1) {
-    args = `#### Args\n${createlist(argnames)}`
+    args = `${createlist(arginfo)}`
   } else {
     args = 'No Args'
   }
 
-  return `${title}\n\n${args}\n`
+  return `${title}\n\n${notes}${args}\n`
 }
 
-const createCategory = (cname) => `### ${cname}
+const createCategory = (cname) => `## ${cname}
 
-${categories[cname].map(createFuncDoc).join('\n')}
+${categories[cname].sort().map((fname) => createFuncDoc(fname, cname)).join('\n')}
+-----------
+
 `
 
 const output = `# Functions
 
-## Argument Types
+${Object.keys(categories).sort().map(createCategory).join('\n')}
+
+# Argument Types
 
 ${createlist(Object.keys(argtypes).sort())}
-
-## Functions
-
-${Object.keys(categories).sort().map(createCategory).join('\n')}
 
 `
 
