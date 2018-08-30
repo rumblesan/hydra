@@ -44,6 +44,13 @@ No Args
 
 No Args
 
+### .shift( `r`, `g`, `b`, `a` )
+
+* r :: float
+* g :: float
+* b :: float
+* a :: float
+
 ### .thresh( `threshold`, `tolerance` )
 
 * threshold :: float
@@ -72,6 +79,10 @@ No Args
 
 No Args
 
+### .mask()
+
+No Args
+
 ### .mult( `color`, `amount` )
 
 * color :: vec4
@@ -94,6 +105,61 @@ changes coordinates based on hue of second input. Based on: https://www.shaderto
 * color :: vec4
 * amount :: float
 
+### .modulateKaleid( `color`, `nSides` )
+
+* color :: vec4
+* nSides :: float
+
+### .modulatePixelate( `color`, `multiple`, `offset` )
+
+* color :: vec4
+* multiple :: float
+* offset :: float
+
+### .modulateRepeat( `color`, `repeatX`, `repeatY`, `offsetX`, `offsetY` )
+
+* color :: vec4
+* repeatX :: float
+* repeatY :: float
+* offsetX :: float
+* offsetY :: float
+
+### .modulateRepeatX( `color`, `reps`, `offset` )
+
+* color :: vec4
+* reps :: float
+* offset :: float
+
+### .modulateRepeatY( `color`, `reps`, `offset` )
+
+* color :: vec4
+* reps :: float
+* offset :: float
+
+### .modulateRotate( `color`, `multiple`, `offset` )
+
+* color :: vec4
+* multiple :: float
+* offset :: float
+
+### .modulateScale( `color`, `multiple`, `offset` )
+
+* color :: vec4
+* multiple :: float
+* offset :: float
+
+### .modulateScrollX( `color`, `scrollX`, `speed` )
+
+* color :: vec4
+* scrollX :: float
+* speed :: float
+
+### .modulateScrollY( `color`, `scrollY`, `speed` )
+
+* color :: vec4
+* scrollY :: float
+* speed :: float
+
 -----------
 
 
@@ -107,6 +173,13 @@ No Args
 
 * pixelX :: float
 * pixelY :: float
+
+### .repeat( `repeatX`, `repeatY`, `offsetX`, `offsetY` )
+
+* repeatX :: float
+* repeatY :: float
+* offsetX :: float
+* offsetY :: float
 
 ### .repeatX( `reps`, `offset` )
 
@@ -148,9 +221,10 @@ No Args
 
 No Args
 
-### noise()
+### noise( `scale`, `offset` )
 
-No Args
+* scale :: float
+* offset :: float
 
 ### osc( `frequency`, `sync`, `offset` )
 
@@ -180,23 +254,19 @@ No Args
 
 ## Util
 
+### ._hsvToRgb()
+
+No Args
+
 ### ._noise()
 
 No Args
 
-### .hsvToRgb()
+### ._rgbToHsv()
 
 No Args
 
 ### .luminance()
-
-No Args
-
-### .random()
-
-No Args
-
-### .rgbToHsv()
 
 No Args
 
