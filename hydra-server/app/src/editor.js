@@ -4,6 +4,7 @@ require('codemirror/mode/javascript/javascript')
 require('codemirror/addon/hint/javascript-hint')
 require('codemirror/addon/hint/show-hint')
 require('codemirror/addon/selection/mark-selection')
+require('codemirror/keymap/vim')
 
 var isShowing = true
 
@@ -11,7 +12,7 @@ var EditorClass = function () {
   var self = this
 
   var container = document.createElement('div')
-  container.setAttribute('id','editor-container')
+  container.setAttribute('id', 'editor-container')
   var el = document.createElement('TEXTAREA')
   document.body.appendChild(container)
   container.appendChild(el)
@@ -21,6 +22,8 @@ var EditorClass = function () {
     value: 'hello',
     mode: {name: 'javascript', globalVars: true},
     lineWrapping: true,
+    keyMap: 'vim',
+    cursorBlinkRate: 0,
     styleSelectedText: true
   })
 
@@ -33,14 +36,14 @@ var EditorClass = function () {
   let searchParams = new URLSearchParams(window.location.search)
   let showCode = searchParams.get('show-code')
 
-    if(showCode == "false") {
-      console.log("not showing code")
-      var l = document.getElementsByClassName('CodeMirror-scroll')[0]
-      l.style.display = 'none'
+  if (showCode == 'false') {
+    console.log('not showing code')
+    var l = document.getElementsByClassName('CodeMirror-scroll')[0]
+    l.style.display = 'none'
     //  self.logElement.style.display = 'none'
-      isShowing = false
-    }
-  //}
+    isShowing = false
+  }
+  // }
 }
 
 EditorClass.prototype.clear = function () {
@@ -59,7 +62,7 @@ EditorClass.prototype.hide = function () {
   var l = document.getElementsByClassName('CodeMirror-scroll')[0]
   var m = document.getElementById('modal-header')
   l.style.opacity = 0
-//  this.logElement.style.opacity  = 0
+  //  this.logElement.style.opacity  = 0
   m.style.opacity = 0
   this.isShowing = false
 }
@@ -67,9 +70,9 @@ EditorClass.prototype.hide = function () {
 EditorClass.prototype.show = function () {
   var l = document.getElementsByClassName('CodeMirror-scroll')[0]
   var m = document.getElementById('modal-header')
-  l.style.opacity= 1
+  l.style.opacity = 1
   m.style.opacity = 1
-//  this.logElement.style.opacity  = 1
+  //  this.logElement.style.opacity  = 1
   this.isShowing = true
 }
 
@@ -86,7 +89,6 @@ EditorClass.prototype.getLine = function () {
   var s = this.cm.getLine(c.line)
   return s
 }
-
 
 EditorClass.prototype.getCurrentBlock = function () { // thanks to graham wakefield + gibber
   var editor = this.cm

@@ -1,0 +1,82 @@
+/*
+  Name:       Rumblesan's Theme
+  Author:     Guy John
+*/
+
+.cm-s-rumblesan.CodeMirror {
+  background: rgba(0, 0, 0, 0);
+  color: #cccccc;
+  font-size: 18px;
+}
+
+/* general text stylings */
+.cm-s-rumblesan .CodeMirror-line span {
+  background: #073642;
+}
+/* Fix issue with line backgrounds */
+.cm-s-rumblesan .CodeMirror-line > span span {
+  background: rgba(0, 0, 0, 0);
+}
+
+.cm-s-rumblesan .CodeMirror-line span span.CodeMirror-selectedtext {
+  background: #93a1a1;
+  color: #073642;
+}
+
+/* make cursor appear above text */
+.cm-s-rumblesan.cm-fat-cursor .CodeMirror-cursors {
+  z-index:15;
+}
+/* Cursor in command mode */
+.cm-s-rumblesan.cm-fat-cursor .CodeMirror-cursor {
+  background: #ffffffdd;
+}
+/* Cursor in insert mode */
+.cm-s-rumblesan .CodeMirror-cursor {
+  border-left: 3px solid #999;
+}
+
+/* language highlighting */
+.cm-s-rumblesan span.cm-comment {
+  color: #d27b53;
+}
+.cm-s-rumblesan span.cm-atom {
+  color: #a16a94;
+}
+.cm-s-rumblesan span.cm-number {
+  color: #a16a94;
+}
+
+.cm-s-rumblesan span.cm-property,
+.cm-s-rumblesan span.cm-attribute {
+  color: #99cc99;
+}
+.cm-s-rumblesan span.cm-keyword {
+  color: #f2777a;
+}
+.cm-s-rumblesan span.cm-string {
+  color: #ffcc66;
+}
+
+.cm-s-rumblesan span.cm-variable {
+  color: #99cc99;
+}
+.cm-s-rumblesan span.cm-variable-2 {
+  color: #6699cc;
+}
+.cm-s-rumblesan span.cm-def {
+  color: #f99157;
+}
+.cm-s-rumblesan span.cm-bracket {
+  color: #cccccc;
+}
+.cm-s-rumblesan span.cm-tag {
+  color: #f2777a;
+}
+.cm-s-rumblesan span.cm-link {
+  color: #a16a94;
+}
+.cm-s-rumblesan span.cm-error {
+  background: #f2777a;
+  color: #6a6a6a;
+}
